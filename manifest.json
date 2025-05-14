@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "WHOIS Domain Helper",
+  "version": "1.5",
+  "description": "Подсветка доменов и быстрый WHOIS-поиск",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
